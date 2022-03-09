@@ -1,1 +1,73 @@
+ gcc -g p1final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x856: file p1final.c, line 18.
+(gdb) r
+Starting program: /home/runner/Test3Session2-1/a.out 
+warning: Error disabling address space randomization: Operation not permitted
 
+Breakpoint 1, main () at p1final.c:18
+18  {
+(gdb) n
+20    input(&num1,&den1,&num2,&den2);
+(gdb) s
+input (num1=0x7ffc07a370f0, den1=0x7ffc07a370f4, 
+    num2=0x7ffc07a370f8, den2=0x7ffc07a370fc)
+    at p1final.c:5
+5     printf("enter four number\n");
+(gdb) n
+enter four number
+6     scanf("%d %d %d %d",num1,den1,num2,den2);
+(gdb) n
+1
+2
+3
+1
+7   }
+(gdb) n
+main () at p1final.c:21
+21    add(num1,den1,num2,den2,&num3,&den3);
+(gdb) s
+add (num1=1, den1=2, num2=3, den2=1, num3=0x7ffc07a37100, 
+    den3=0x7ffc07a37104) at p1final.c:10
+10    *den3 = den1*den2;
+(gdb) n
+11    *num3 = num1*den2 + num2*den1;
+(gdb) n
+12  }
+(gdb) n
+main () at p1final.c:22
+22    output(num1,den1,num2,den2,num3,den3);
+(gdb) s
+output (num1=1, den1=2, num2=3, den2=1, num3=7, den3=2)
+    at p1final.c:15
+15    printf("sum of %d/%d and %d/%d is %d/%d\n",num1,den1,num2,den2,num3,num3);
+(gdb) n
+sum of 1/2 and 3/1 is 7/7
+16  }
+(gdb) n
+main () at p1final.c:23
+23    return 0;
+(gdb) q
+A debugging session is active.
+
+    Inferior 1 [process 1013] will be killed.
+
+Quit anyway? (y or n) Quit
+(gdb) Quit
+(gdb) 
