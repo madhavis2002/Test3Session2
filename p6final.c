@@ -2,7 +2,7 @@
 void input_string(char *a);
 int str_reverse(char *string, char *substring);
 void output(char *string, char *substring, int index); */
-
+/*
 int string_length(char *s)
 {
   int i;
@@ -27,6 +27,6 @@ int string_index(char *s, char *subs)
     if (string_nscmp(s,subs))
       return i;
   return -1;
-}
+}*/
 
 /* Understand and debug the functions and write main */
